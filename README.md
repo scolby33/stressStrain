@@ -8,7 +8,7 @@
 This tool expects a series of data files in CSV format located in the folder given by <path>. The data in the CSV file should be arranged as follows:
 
 Extension	|	Load		|	xsection	|	startLen
----------------------------------------------------------
+------------|---------------|---------------|------------
 *ignored*	|	*ignored*	|	*ignored*	|	*ignored*
 data		|	data		|	data		|	data
 ...			|	...			|				|
