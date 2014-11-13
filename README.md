@@ -25,5 +25,7 @@ After this selection is made, the R script fits a linear model to this region an
 
 After the R script returns, the bash script passes the next data file and the process starts again. Once all data is processed, the bash script terminates.
 
+The elastic modulus will be the slope of the fitted line and can be found in <path>/output/data-summary.txt in the coefficients section. It is the "Estimate" for "elasticStrain".
+
 ###Installation Notes
 These scripts should work unchanged on any Unix-like system, but have only been tested on OS X 10.9.
