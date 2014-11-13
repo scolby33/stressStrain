@@ -14,7 +14,7 @@ strain = extension / startLen
 # independant variable: strain
 # dependant variable: stress
 
-quartz()
+dev.new()
 plot(strain, stress, main = args[1], type = "l")	# plot the stress-strain curve
 range = identify(strain, stress, n = 2)	# and allow user to select linear area
 garbage = dev.off()	# hide the output of dev.off()
