@@ -15,6 +15,7 @@ then
 	exit 1
 fi
 
+scriptLocation=$(pwd)
 cd $1
 
 mkdir -p output	# set up directory structure
@@ -25,7 +26,7 @@ then
 	for f in *.csv	# process each data file with R script
 	do
 		echo "Procesing $f"
-		./stresStrain.r $f
+		$scriptLocation/stressStrain.r $f
 		mv $f done/
 	done
 else
