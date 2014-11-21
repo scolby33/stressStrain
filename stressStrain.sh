@@ -25,7 +25,7 @@ then
 	for f in *.csv	# process each data file with R script
 	do
 		echo "Procesing $f"
-		./stress-strain.r $f
+		./stresStrain.r $f
 		mv $f done/
 	done
 else
