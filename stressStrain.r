@@ -1,5 +1,10 @@
 #!/usr/bin/Rscript
 
+# stressStrain.r
+# Scott Colby - 2015
+
+# Usage: stressStrain.r dataFile
+
 args = commandArgs(TRUE)
 rawData = read.csv(args[1], stringsAsFactors=FALSE)	# args[1] = data.csv
 
@@ -14,7 +19,7 @@ strain = extension / startLen
 # independant variable: strain
 # dependant variable: stress
 
-quartz()	# works for OSX, change for Windows
+dev.new()	# works for OSX, change for Windows
 plot(strain, stress, main = args[1], type = "l")	# plot the stress-strain curve
 range = identify(strain, stress, n = 2)	# and allow user to select linear area
 garbage = dev.off()	# hide the output of dev.off()
