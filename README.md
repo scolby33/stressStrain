@@ -1,7 +1,7 @@
-#stressStrain
+# stressStrain
 A set of scripts to quickly calculate the elastic modulus from load-extension data
 
-##`dimensions.py`
+## `dimensions.py`
     usage: dimensions.py
 
 This is a helper script to add the xsection and startLen columns (as required by `stressStrain.r`--see below) to a number of CSV data file at once. It reads a CSV file in the current directory called `dimensions.csv` with the following format:
@@ -14,7 +14,7 @@ data    	|   data		|	data
 
 The script then opens all the other CSV files in the current directory and adds the "xsection" and "startLen" column headers, the unit notations ("(mm^2)" and "mm") directly below the headers, and then the correct value for that data file, based on its file name. The processed files saved in the directory "added" beneath the current directory; the original files are left unchanged.
 
-##`stressStrain.sh`
+## `stressStrain.sh`
     usage: stressStrain.sh
 
 This script is a wrapper around the `stressStrain.r` script that takes care of running the R process on each data file in the working directory. First, it checks for the existance of `stressStrain.r` on the path or in the current working directory; if it is not found, the script exits with a status of 3. If there are no csv files in the working directory, the script exits with a status of 1.
@@ -23,7 +23,7 @@ Presuming `stressStrain.r` is found, the script then creates a new directory in 
 
 Once all files have been processed, the script exits, with a status of 0 if no problems were encountered and a satus of 2 if there were errors with the processing performed by the R script.
 
-##`stressStrain.r`
+## `stressStrain.r`
     usage: ./stressStrain.r dataFile
 
 This tool expects a data file in CSV format. The data in the CSV file should be arranged as follows:
@@ -46,10 +46,10 @@ After this selection is made, the R script fits a linear model to this region an
 
 The elastic modulus will be the slope of the fitted line and can be found in output/data-summary.txt in the coefficients section. It is the "Estimate" for "elasticStrain".
 
-##`summarize.py`
+## `summarize.py`
     usage: summarize.py
 
 This is a quick-and-dirty script created to extract the calculated elastic modulus from a large number of `*-summary.txt` files. When run, it will find the correct "Estimate" in each file whose name ends with "-summary.txt" in the current working directory and save them to a CSV file called `summary.csv`, alongside the name of the file from which the data was extracted. Note, please, that this process will overwrite any existing summary file.
 
-##Installation Notes
+## Installation Notes
 These scripts should work unchanged on any Unix-like system, but have only been tested on OS X 10.9. They can be run either from the current working directory (generally by invoking them with ./script-name) or by placing them in a location included in your path.
